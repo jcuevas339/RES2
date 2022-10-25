@@ -1,0 +1,58 @@
+{% include 'cc/cabecera.html'%}
+
+<section class="home">
+  <div class="container ">
+    <span class="title">Aprobar Proyecciones</span>
+    <form>
+      
+        <table id="datos" class="display">
+            <thead>
+            <tr>
+              <th scope="col">IMPORTE FIRME</th>
+              <th scope="col">IMPORTE PROBABLE</th>
+              <th scope="col">IMPORTE PROYECTADO</th>
+              <th scope="col">ESTATUS</th>
+              <th scope="col">FECHA DE REGISTRO</th>
+              <th scope="col">FECHA DE ENVIO</th>
+              <th scope="col">FECHA AUTORIZACION</th>
+              <th scope="col">NOMBRE CLIENTE</th>
+              <th scope="col">NOMBRE EJECUTIVO</th>
+              
+              <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+            <tbody>
+              {%for proyec in proyec %}
+              <tr>
+    
+                <td>{{proyec[1]}}</td>
+                <td>{{proyec[2]}}</td>
+                <td>{{proyec[3]}}</td>
+                <td>{{proyec[4]}}</td>
+                <td>{{proyec[5]}}</td>
+                <td>{{proyec[6]}}</td>
+                <td>{{proyec[7]}}</td>
+                <td>{{proyec[8]}}</td>
+                <td>{{proyec[9]}}</td>
+                
+                
+                <td>
+                  <a href="javascript:aprobarProyeccion({{proyec[0]}}, '{{proyec[8]}}')" class="btn btn-primary bx bx-check-double"></a>
+                  <a href="javascript:rechazarProyeccion({{proyec[0]}}, '{{proyec[8]}}')" class="btn btn-primary bx bx-x"></a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+    
+          </table>
+  </div>
+
+  </div>
+
+  </form>
+
+  </div>
+</form>
+</div>
+</section>
+{% include 'cc/pie.html'%}

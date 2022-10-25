@@ -1,0 +1,55 @@
+{% include 'cc/cabecera.html'%}
+    <section class="home">
+        <div class="container ">
+            <header>Registro delos segmentos de los clientes</header>
+        
+            <form action="/admin/segmento/guardar" method="post" onsubmit="return validar(this)">
+              <div class="form first">
+                <div class="details personal">
+                  <span class="title">Segmentos</span>
+        
+                  <div class="fields">
+                    
+                    <div class="input-field">
+                        <label>USUARIO </label>
+                        <input type="text" readonly class="form-control" name="" id="" aria-describedby="helpId" value="{{session["nombres"]}}">
+                      </div>
+                    
+                    <div class="input-field">
+                      <label>Nombre del Segmento</label>
+                      <input type="text" class="form-control" name="txtNombre" id="txtNombre" aria-describedby="helpId"
+                        placeholder="Ecriba el nombre del Segmento" required>
+                    </div>
+        
+                    <div class="input-field">
+                      <label>Nombre del subsegmento</label>
+                      <input type="text" class="form-control" name="txtsub" id="txtsub" aria-describedby="helpId"
+                        placeholder="Escriba el nombre del subsegmento">
+                    </div>
+                    
+                    
+        
+                   
+                  </div>
+                </div>
+        
+                <div class="fields">
+                 
+                  <div class="input-field"></div>
+                </div>
+                <div class="buttons">
+                  <button class="buttons">
+                    <span type="submit" class="btnText">Agregar</span>
+                    <i class="uil uil-navigator"></i>
+                  </button>
+                  <a href="/listar/segmento" type="" value="Listado">Listado</a>
+                </div>
+                {%if msg!=None%}
+                <div id="notificaciones">
+                  <h4 style="color:green">{{msg}}</h4>
+                </div>
+                {%endif%}
+        
+              </div>
+    </section>
+{% include 'cc/pie.html'%}

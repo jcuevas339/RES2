@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Inicio de Sesion</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/estiloLogin.css') }}">  
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+           <!-- Designed By CodingLab -->
+
+  <body>
+    <div class="container">
+      <form action="/login" method="post">
+        <div class="title">INICIO DE SESION</div>
+        <div class="input-box underline">
+          <input type="text" placeholder="Numero de Empleado" name="txtNoEmpleado"required>
+          <div class="underline"></div>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Escribe tu contraseña" name="txtContrasenia" required>
+          <div class="underline"></div>
+        </div>
+        <div class="input-box button">
+          <input type="submit" name="" value="Iniciar Sesion">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

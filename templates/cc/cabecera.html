@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!----======== CSS ======== -->
+
+
+
+
+    <!----===== Boxicons CSS ===== -->
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/estilo.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/material.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/estio_registro.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/tabla.css') }}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../static/js/editarPerfil.js"></script>
+    <script src="../../static/js/global.js"></script>
+
+    <title>Inicio</title>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="{{ url_for('static',filename='img/logos.png') }}">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">{{session["nombres"]}}</span>
+                    <span class="profession">Administrador</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                    <li class="search-box">
+                        <i class="bx bx-search icon"></i>
+                        <input type="text" onkeyup="doSearch()" placeholder="Buscar" id="buscar">
+                    </li>
+                        <ul class="menu-links">
+                            <li class="nav-link">
+                                <a href="/admin/">
+                                 <i class='bx bx-home-alt icon'></i>
+                                 <span class="text nav-text">Inicio</span>
+                                </a>
+                            </li>
+
+                        <li class="nav-link">
+                            <a href="/admin/ejecutivo">
+                                <i class='bx bx-male-female icon'></i>
+                                <span class="text nav-text">Ejecutivo</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/admin/coordinador">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">Coordinador</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-link">
+                            <a href="/admin/segmento">
+                                <i class='bx bx-hive icon'></i>
+                                <span class="text nav-text">Segmentos</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/admin/asignacion">
+                                <i class='bx bx-group icon'></i>
+                                <span class="text nav-text">Asignacion de Clientes</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/listar/proyecciones">
+                                <i class='bx bx-pie-chart-alt icon'></i>
+                                <span class="text nav-text">Proyecciones</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/admin/proyeccionesIndividuales">
+                                <i class='bx bx-bar-chart-alt-2 icon'></i>
+                                <span class="text nav-text">Proyecciones individuales</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/admin/aprobarproyecciones">
+                                <i class='bx bx-list-check icon'></i>
+                                <span class="text nav-text">Aprobar Proyecciones</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/admin/ajustes">
+                                <i class='bx bx-cog icon'></i>
+                                <span class="text nav-text">Ajustes</span>
+                            </a>
+                        </li>
+
+                        </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="nav-link">
+                    <a href="/admin/cerrar">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Salir</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Modo Oscuro</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+
+            </div>
+        </div>
+
+    </nav>

@@ -1,0 +1,74 @@
+{% include 'cc/cabecera.html'%}
+
+<section class="home">
+
+  <div class="container ">
+    <header>Actualizar Proyecciones</header>
+
+    <form action="/admin/proyecciones/actualizar" method="post" onsubmit="return validar(this)" id="f1" name="f1">
+      <div class="form first">
+        <div class="details personal">
+          <span class="title">{{session["nombres"]}}</span>
+
+        
+
+          <div class="fields">
+
+            <div class="input-field">
+                <label>ID</label>
+                <input readonly type="text" class="form-control" name="id" value="{{imp[0]}}" id="id" aria-describedby="helpId">
+              </div>
+
+            <div class="input-field">
+              <label>Importe Firme</label>
+              <input type="number" class="form-control" value="{{imp[1]}}" name="txtnumero1" id="txtnumero1" onkeyup="Sumar()" aria-describedby="helpId"
+                placeholder="Ecriba importe firme">
+            </div>
+
+            <div class="input-field">
+              <label>Importe Probable</label>
+              <input type="number" class="form-control" value="{{imp[2]}}"" name="txtnumero2" id="txtnumero2" onkeyup="Sumar()" aria-describedby="helpId"
+                placeholder="Escriba el importe probable">
+            </div>
+            <div class="input-field">
+              <label>Importe Proyectado</label>
+              <input readonly type="text" class="form-control" name="txtresultado" value="{{imp[3]}}" id="txtresultado" aria-describedby="helpId"
+                placeholder="0.0">
+            </div>
+            
+            <div class="input-field">
+              <label>Clientes</label>
+              <select name="clientes">
+                <option value="0">Elige un cliente</option>
+                {% for clientes in clientes %}
+                {%if clientes[0]==imp[8] %}
+                <option value="{{clientes[0]}}" selected>{{clientes[1]}}</option>
+                {%else%}
+                <option value="{{clientes[0]}}">{{clientes[1]}}</option>
+                {%endif%}
+                {%endfor%}
+              </select>
+            </div>
+            <div class="input-field"></div>
+          </div>
+        
+
+          <div class="input-field"></div>
+        </div>
+        <div class="buttons">
+          <button class="buttons">
+            <span type="submit" class="btnText">Actualizar</span>
+            <i class="uil uil-navigator"></i>
+          </button>
+          <a href="/listar/proyecciones" type="" value="Listado">Listado de Proyecciones</a>
+        </div>
+        {%if msg!=None%}
+        <div id="notificaciones">
+          <h4 style="color:green">{{msg}}</h4>
+        </div>
+        {%endif%}
+
+      </div>
+
+</section>
+{% include 'cc/pie.html'%}

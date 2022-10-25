@@ -1,0 +1,25 @@
+{% include 'site/cabecera.html' %}
+    <div class="p-5 bg-light bg-">
+        <div class="container">
+            <h1 class="display-3">Bienvenido</h1>
+            <hr class="my-2">
+            <p>More info</p>
+            <p class="lead">
+                
+                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+
+
+                <div class="input-field">
+                    <label>Coordinador</label>
+                  <select name="coordinador">
+                    <option value="0">Elige un cliente</option>
+                    {% for clientes in clientes %} 
+                    <option value="{{clientes[1]}}">{{clientes[0]}}</option>
+                    {%endfor%}
+                  </select>
+                </div>
+            </p>
+        </div>
+    </div>
+{% include 'site/pie.html' %}
+   

@@ -1,0 +1,52 @@
+{% include 'cc/cabecera.html'%}
+    <section class="home">
+        <div class="container ">
+        <form>
+        <table id="datos" number-per-page="3" current-page="" class="display">
+            <thead>
+            <tr>
+              <th scope="col">NOMBRES</th>
+              <th scope="col">PATERNO</th>
+              <th scope="col">MATERNO</th>
+              <th scope="col">TIPO</th>
+              <th scope="col">EMAIL</th>
+              <th scope="col">USUARIO</th>
+              <th></th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+            <tbody>
+              {%for usuarios in usuarios%}
+              <tr>
+    
+                <td>{{usuarios[1]}}</td>
+                <td>{{usuarios[2]}}</td>
+                <td>{{usuarios[3]}}</td>
+                <td>{{usuarios[4]}}</td>
+                <td>{{usuarios[5]}}</td>
+                <td>{{usuarios[6]}}</td>
+                <td>{{usuarios[8]}}</td>
+                <td>
+    
+                  <a href="javascript:eliminarUsuario({{usuarios[0]}}, '{{usuarios[1]}}')" class=" bx bx-user-x"></a>
+                  <a href="/ConsultarCoordinador/{{usuarios[0]}}" class="btn btn-warning bx bxs-edit-alt"></a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>   
+          </table>
+    
+          <div class="buttons">
+            <a href="/admin/coordinador" type="" value="">Regresar</a>
+          </div>
+      </div>
+    
+      </div>
+    
+      </form>
+    
+      </div>
+    </form>
+</div>
+    </section>
+{% include 'cc/pie.html'%}

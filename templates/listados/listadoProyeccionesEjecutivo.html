@@ -1,0 +1,55 @@
+{% include 'ejecutivo/cabecera.html'%}
+    <section class="home">
+        <div class="container ">
+        <form>
+            <table id="datos" class="display">
+                <thead>
+                <tr>
+                  <th scope="col">IMPORTE FIRME</th>
+                  <th scope="col">IMPORTE PROBABLE</th>
+                  <th scope="col">IMPORTE PROYECTADO</th>
+                  <th scope="col">ESTATUS</th>
+                  <th scope="col">FECHA DE REGISTRO</th>
+                  <th scope="col">FECHA DE ENVIO</th>
+                  <th scope="col">FECHA AUTORIZACION</th>
+                  <th scope="col">NOMBRE CLIENTE</th>
+                  <th scope="col">NOMBRE EJECUTIVO</th>
+                  
+                  <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+                <tbody>
+                  {%for proyec in proyec %}
+                  <tr>
+        
+                    <td>{{proyec[1]}}</td>
+                    <td>{{proyec[2]}}</td>
+                    <td>{{proyec[3]}}</td>
+                    <td>{{proyec[4]}}</td>
+                    <td>{{proyec[5]}}</td>
+                    <td>{{proyec[6]}}</td>
+                    <td>{{proyec[7]}}</td>
+                    <td>{{proyec[8]}}</td>
+                    <td>{{proyec[9]}}</td>
+                    
+                    
+                    <td>
+                    {%if proyec[4]=='R'%}
+                      <a href="/consultarProyeccionEjecutivo/{{proyec[0]}}" class="btn btn-warning bx bxs-edit-alt"></a>
+                    {% else%}
+                      <a href="#" class="btn btn-warning bx bxs-edit-alt disabled"></a>
+                    {%endif%}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+        
+              </table>
+              
+              <div class="buttons">
+                <a href="/ejecutivo/proyecciones/{{session["nombres"]}}" type="" value="">Regresar</a>
+              </div>
+    </form>
+</div>
+    </section>
+{% include 'ejecutivo/pie.html'%}

@@ -1,0 +1,48 @@
+{% include 'cc/cabecera.html'%}
+    <section class="home">
+        <div class="container ">
+        <form>
+            <table id="datos" number-per-page="3" current-page="" class="display">
+                <thead>
+                <tr>
+                    
+                  <th scope="col">ID</th>
+                  <th scope="col">SEGMENTO</th>
+                  <th scope="col">SUBSEGMENTO</th>
+                  
+                  <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+                <tbody>
+                  {%for segmento in segmento%}
+                  <tr>
+        
+                    <td >{{segmento[0]}}</td>
+                    <td class="text-align:left">{{segmento[1]}}</td>
+                    <td>{{segmento[2]}}</td>
+                    
+                    <td>
+        
+        
+                      <a href="/ConsultarAsignacion/{{segmento[0]}}" class="btn btn-warning bx bxs-edit-alt"></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+        
+              </table>
+    
+          <div class="buttons">
+            <a href="/admin/segmento" type="" value="">Regresar</a>
+          </div>
+      </div>
+    
+      </div>
+    
+      </form>
+    
+      </div>
+    </form>
+</div>
+    </section>
+{% include 'cc/pie.html'%}

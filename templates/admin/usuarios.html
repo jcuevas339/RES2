@@ -1,0 +1,105 @@
+{% include 'admin/cabecera.html' %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-white bg-primary">
+                    Usuario Coordinador
+                </div>
+                <div class="card-body">
+
+                     <form action="/admin/usuarios/guardar" method="post" onsubmit="return validar(this)">
+
+                        <div class="mb-2">
+                          <label for="txtNombre" class="form-label">Nombre del Coordinador</label>
+                          <input type="text" class="form-control" name="txtNombre" id="txtNombre" aria-describedby="helpId" placeholder="Ecriba el nombre del Coordinador">
+                        </div>
+                        
+                        <div class="mb-2">
+                          <label for="txtAP" class="form-label">Apellido Paterno</label>
+                          <input type="text" class="form-control" name="txtAP" id="txtAP" aria-describedby="helpId" placeholder="Apellido Paterno" required>
+                        </div>
+
+                        <div class="mb-2">
+                          <label for="txtAM" class="form-label">Apellido Materno</label>
+                          <input type="text" class="form-control" name="txtAM" id="txtAM" aria-describedby="helpId" placeholder="Apellido Materno" required>
+                        </div>
+
+                        <div class="mb-2">
+                          <label for="txtPass" class="form-label">Contraseña</label>
+                          <input type="password" class="form-control" name="txtPass" id="txtPass" aria-describedby="helpId" placeholder="Contraseña" required>
+                        </div>
+                        <div class="mb-2">
+                          <label for="txtPass" class="form-label">Confirmar Contraseña</label>
+                          <input type="password" class="form-control" name="confirmPass" id="confirmPass" aria-describedby="helpId" placeholder="Contraseña" >
+                        </div>
+
+                        <div class="mb-2">
+                          <label for="txtEmail" class="form-label">Email</label>
+                          <input type="email" class="form-control" name="txtEmail" id="txtEmail" aria-describedby="helpId" placeholder="ejemplo@ejemplo.com">
+                        </div>
+
+                        <div class="mb-2">
+                          <label for="txtNoEmpleado" class="form-label">Numero Empleado</label>
+                          <input type="number" class="form-control" name="txtNoEmpleado" id="txtNoEmpleado" aria-describedby="helpId" placeholder="NoEmpleado">
+                        </div>
+
+                        <div class="mb-2">
+                          <label for="txtNomUsuario" class="form-label">Nombre de Usuario</label>
+                          <input type="text" class="form-control" name="txtNomUsuario" id="txtNomUsuario" aria-describedby="helpId" placeholder="EJ. J.Perez">
+                        </div>
+                        <button type="submit" class="btn btn-primary bx bx-user-plus"/></button>
+                      </form>
+                      <br>
+                     {%if msg!=None%}
+                     <div id="notificaciones">
+                        <h4 style="color:green">{{msg}}</h4>
+                     </div>
+                     {%endif%}
+                </div>
+                <div class="card-footer text-muted bg-primary">
+                 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">   
+            <table class="table table-striped" id="datos">
+              <thead class="bg-success text-white ">
+                <tr>
+                  <th scope="col">NOMBRES</th>
+                  <th scope="col">PATERNO</th>
+                  <th scope="col">MATERNO</th>
+                  <th scope="col">TIPO</th>
+                  <th scope="col">EMAIL</th>
+                  <th scope="col">USUARIO</th>
+                  <th></th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%for usuarios in usuarios%}
+                <tr class="">
+                  <td>{{usuarios[1]}}</td>
+                  <td>{{usuarios[2]}}</td>
+                  <td>{{usuarios[3]}}</td>
+                  <td>{{usuarios[4]}}</td>
+                  <td>{{usuarios[5]}}</td>
+                  <td>{{usuarios[6]}}</td>
+                  <td>{{usuarios[7]}}</td>
+                  <td>
+                    <form action="/admin/usuarios/borrar"method="post">
+                      <--!input type="text" name="txtID" value="{{usuarios[0]}}" id="txtID"--!>
+                      <button type="submit" value="" class="btn btn-danger margin bx bx-user-x"></button>
+                    </form>
+
+                    <button class="btn btn-warning bx bxs-edit-alt"></button>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+           </div>
+        </div>  
+    </div>
+{% include 'admin/pie.html' %}

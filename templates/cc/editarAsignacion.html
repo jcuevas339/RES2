@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/estio_registro.css') }}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../static/js/editarPerfil.js"></script>
+    <title>Editar Ejecutivo</title>
+</head>
+
+<body>
+    <div class="container ">
+        <header>Editar asignacion del cliente</header>
+
+        <form action="/admin/asignacion/actualizar" method="post" onsubmit="return validar(this)">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Asignacion</span>
+
+                    <div class="fields">
+                        
+                        <div class="input-field">
+                            <label>ID</label>
+                            <input type="number" class="form-control" readonly name="id" id="id" aria-describedby="helpId"  value="{{usuario[0]}}">
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>Cliente asignado</label>
+                            <select name="clientes">
+                                <option value="{{cliente[null]}}">Elige un cliente</option>
+                                {% for cliente in cliente %}
+                                    {%if cliente[0]==usuario[1]%}
+                                        <option value="{{cliente[0]}}" selected>{{cliente[0]}}</option>
+                                    {%else%}
+                                    <option value="{{cliente[0]}}">{{cliente[0]}}</option>
+                                    {%endif%}
+                                {%endfor%}
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Segmento asignado</label>
+                            <select name="segmento">
+                                <option value="0">Elige un segmento</option>
+                                {% for seg in seg %}
+                                    {%if seg[1]==usuario[2]%}
+                                        <option value="{{seg[0]}}" selected>{{seg[1]}}, SUBSEGMENTO {{seg[2]}}</option>
+                                    {%else%}
+                                    <option value="{{seg[0]}}">{{seg[1]}}, SUBSEGMENTO {{seg[2]}}</option>
+                                    {%endif%}
+                                {%endfor%}
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Ejecutivo</label>
+                            <select name="ejecutivo">
+                                <option value="{{ejecutivo[0]}}">Elige un ejecutivo</option>
+                                {% for ejecutivo in ejecutivo %}
+                                    {%if ejecutivo[0]==usuario[4]%}
+                                        <option value="{{ejecutivo[0]}}" selected>{{ejecutivo[1]}}</option>
+                                    {%else%}
+                                    <option value="{{ejecutivo[0]}}">{{ejecutivo[1]}}</option>
+                                    {%endif%}
+                                {%endfor%}
+                            </select>
+                        </div>
+
+
+
+                       
+                        
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="buttons">
+                        <span type="submit" class="btnText">Actualizar</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                    <a href="/admin/asignacion"class="btn btn-warning">Regresar</a>
+                </div>
+                {%if msg!=None%}
+                <div id="notificaciones">
+                    <h4 style="color:green">{{msg}}</h4>
+                </div>
+                {%endif%}
+
+            </div>
+
+
+
+            <div class="buttons">
+                <div class="backBtn">
+                    <i class="uil uil-navigator"></i>
+                    <span class="btnText">Regresar</span>
+                </div>
+            </div>
+    </div>
+
+    </div>
+
+    </form>
+
+    </div>
+</body>
+
+</html>

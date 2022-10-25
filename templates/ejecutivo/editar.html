@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/estio_registro.css') }}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../static/js/editarPerfil.js"></script>
+    <title>Editar Ejecutivo</title>
+</head>
+
+<body>
+    <div class="container ">
+        <header>Editar usuario Ejecutivo</header>
+
+        <form action="/admin/ejecutivo/actualizar" method="post" onsubmit="return validar(this)">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Ejecutivo</span>
+
+                    <div class="fields">
+                        
+                        <div class="input-field">
+                            <label>ID</label>
+                            <input type="number" class="form-control" readonly name="id" id="id" aria-describedby="helpId"  value="{{usuario[9]}}">
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>Nombre(s)</label>
+                            <input type="text" class="form-control" name="txtNombre" id="txtNombre"
+                                aria-describedby="helpId" placeholder="Ecriba el nombre del Coordinador" value="{{usuario[0]}}">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Apellido Paterno</label>
+                            <input type="text" class="form-control" name="txtAP" id="txtAP" aria-describedby="helpId"
+                                placeholder="Apellido Paterno" value="{{usuario[1]}}">
+                        </div>
+                        <div class="input-field">
+                            <label>Apellido Materno</label>
+                            <input type="text" class="form-control" name="txtAM" id="txtAM" aria-describedby="helpId"
+                                placeholder="Apellido Paterno" value="{{usuario[2]}}">
+                        </div>
+
+
+                        <div class="input-field">
+                            <label>Contraseña</label>
+                            <input type="password" class="form-control" name="txtPass" id="txtPass"
+                                aria-describedby="helpId" placeholder="Contraseña" value="{{usuario[4]}}">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Confirmar Contraseña</label>
+                            <input type="password" class="form-control" name="confirmPass" id="confirmPass"
+                                aria-describedby="helpId" placeholder="Contraseña" value="{{usuario[4]}}">
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="txtEmail" id="txtEmail"
+                                aria-describedby="helpId" placeholder="ejemplo@ejemplo.com" value="{{usuario[5]}}">
+                        </div>
+                        <div class="input-field">
+                            <label>Numero de Empleado</label>
+                            <input type="number" class="form-control" name="txtNoEmpleado" id="txtNoEmpleado"
+                                aria-describedby="helpId" placeholder="NoEmpleado" value="{{usuario[6]}}">
+                        </div>
+                        <div class="input-field">
+                            <label>Coordinador</label>
+                            <select name="coordinador">
+                                <option value="0">Elige un coordinador</option>
+                                {% for coordinador in coordinador %}
+                                    {%if coordinador[0]==usuario[8]%}
+                                        <option value="{{coordinador[0]}}" selected>{{coordinador[2]}}</option>
+                                    {%else%}
+                                    <option value="{{coordinador[0]}}">{{coordinador[2]}}</option>
+                                    {%endif%}
+                                {%endfor%}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="buttons">
+                        <span type="submit" class="btnText">Actualizar</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                    <a href="/admin/ejecutivo"class="btn btn-warning" value="">Regresar</a>
+                </div>
+                {%if msg!=None%}
+                <div id="notificaciones">
+                    <h4 style="color:green">{{msg}}</h4>
+                </div>
+                {%endif%}
+
+            </div>
+
+
+
+            <div class="buttons">
+                <div class="backBtn">
+                    <i class="uil uil-navigator"></i>
+                    <span class="btnText">Regresar</span>
+                </div>
+            </div>
+    </div>
+
+    </div>
+
+    </form>
+
+    </div>
+</body>
+
+</html>

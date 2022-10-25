@@ -1,0 +1,74 @@
+{% include 'cc/cabecera.html'%}
+
+<section class="home">
+  <div class="container ">
+    <header>Asignacion de Clientes</header>
+
+    <form action="/admin/asignacion/guardar" method="post" onsubmit="return validar(this)">
+      <div class="form first">
+        <div class="details personal">
+          <span class="title">Asignacion</span>
+
+          <div class="fields">
+
+            <div class="input-field">
+              <label>Clientes</label>
+              <select name="clientes">
+                <option value="0">Elige un cliente</option>
+                {% for clientes in clientes %}
+                <option value="{{clientes[0]}}">{{clientes[0]}}</option>
+                {%endfor%}
+              </select>
+            </div>
+
+            <div class="input-field">
+              <label>Segmento </label>
+            <select name="segmento">
+              <option value="0">Elige un segmento</option>
+              {% for asignacion in asignacion %}
+              <option value="{{asignacion[0]}}">{{asignacion[1]}}, SUBSEGMENTO, {{asignacion[2]}} </option>
+              {%endfor%}
+            </select>
+          </div>
+
+            <div class="input-field">
+              <label>Ejecutivo</label>
+            <select name="ejecutivo">
+              <option value="0">Elige un ejecutivo</option>
+              {% for ejecutivo in ejecutivo %}
+              <option value="{{ejecutivo[0]}}">{{ejecutivo[1]}}</option>
+              {%endfor%}
+            </select>
+          </div>
+
+            <div class="input-field">
+              <label>Nombre del Subsegmento</label>
+              <input type="text" class="form-control" name="txtSub" id="txtSub" aria-describedby="helpId"
+                placeholder="Nombre del subsegmento">
+            </div>
+          </div>
+        </div>
+    
+        <div class="buttons">
+          <button class="buttons">
+            <span type="submit" class="btnText">Agregar</span>
+            <i class="uil uil-navigator"></i>
+          </button>
+          <a href="/listar/asignacion" type="" value="Listado">Listado</a>
+        </div>
+        {%if msg!=None%}
+        <div id="notificaciones">
+          <h4 style="color:green">{{msg}}</h4>
+        </div>
+        {%endif%}
+
+      </div>
+  </div>
+
+  </div>
+
+  </form>
+
+  </div>
+</section>
+{% include 'cc/pie.html'%}

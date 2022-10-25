@@ -1,0 +1,82 @@
+{% include 'cc/cabecera.html'%}
+<section class="home">
+
+  <div class="container ">
+    <header>Registro del usuario Coordinador</header>
+
+    <form action="/admin/coordinador/guardar" method="post" onsubmit="return validar(this)">
+      <div class="form first">
+        <div class="details personal">
+          <span class="title">Coordinador</span>
+
+          <div class="fields">
+            <div class="input-field">
+              <label>Nombre(s)</label>
+              <input type="text" class="form-control" name="txtNombre" id="txtNombre" aria-describedby="helpId"
+                placeholder="Ecriba el nombre del Coordinador">
+            </div>
+
+            <div class="input-field">
+              <label>Apellido Paterno</label>
+              <input type="text" class="form-control" name="txtAP" id="txtAP" aria-describedby="helpId"
+                placeholder="Apellido Paterno">
+            </div>
+            <div class="input-field">
+              <label>Apellido Materno</label>
+              <input type="text" class="form-control" name="txtAM" id="txtAM" aria-describedby="helpId"
+                placeholder="Apellido Paterno">
+            </div>
+
+            <div class="input-field">
+              <label>Email</label>
+              <input type="email" class="form-control" name="txtEmail" id="txtEmail" aria-describedby="helpId"
+                placeholder="ejemplo@ejemplo.com">
+            </div>
+
+            <div class="input-field">
+              <label>Contraseña</label>
+              <input type="password" class="form-control" name="txtPass" id="txtPass" aria-describedby="helpId"
+                placeholder="Contraseña">
+            </div>
+
+            <div class="input-field">
+              <label>Confirmar Contraseña</label>
+              <input type="password" class="form-control" name="confirmPass" id="confirmPass" aria-describedby="helpId"
+                placeholder="Contraseña">
+            </div>
+          </div>
+        </div>
+
+        <div class="fields">
+          <div class="input-field">
+            <label>Numero de Empleado</label>
+            <input type="number" class="form-control" name="txtNoEmpleado" id="txtNoEmpleado" aria-describedby="helpId"
+              placeholder="NoEmpleado">
+          </div>
+
+
+          <div class="input-field">
+            <label>Nombre de Usuario</label>
+            <input type="text" class="form-control" name="txtNomUsuario" id="txtNomUsuario" aria-describedby="helpId"
+              placeholder="EJ. J.Perez">
+          </div>
+
+          <div class="input-field"></div>
+        </div>
+        <div class="buttons">
+          <button class="buttons">
+            <span type="submit" class="btnText">Agregar</span>
+            <i class="uil uil-navigator"></i>
+          </button>
+          <a href="/listar/coordinador" type="" value="Listado">Listado</a>
+        </div>
+        {%if msg!=None%}
+        <div id="notificaciones">
+          <h4 style="color:green">{{msg}}</h4>
+        </div>
+        {%endif%}
+
+      </div>
+
+</section>
+{% include 'cc/pie.html'%}
